@@ -1,0 +1,45 @@
+.trainingContainer {
+    /* display: flex;
+    flex-wrap: wrap; */
+    width: 100%;
+    min-height: 100vh;
+   margin: 0 auto;
+}
+
+.drillsMenu {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.drillsMenu p {
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 50px;
+    margin-top: 30px;
+   
+}
+.trainingContainer a{ 
+    flex-basis: 20%;
+}
+
+
+.drillExample {
+    width: 100%;
+}
+
+.linkDrills {
+    text-decoration: none;
+    width: 100%;
+    margin-top: 8px;
+    text-align: center;
+    color: #113c2b;
+}
+
+.linkDrillsActive {
+    text-decoration: underline;
+}
+.drillExample img {
+    width: 100%;
+}

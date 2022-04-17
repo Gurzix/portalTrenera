@@ -1,0 +1,15 @@
+.whyUsH2 {
+    font-family: 'montserrat';
+    letter-spacing: 2px;
+    width: 80%;
+    text-align: center;
+    padding-top: 50px;
+    margin: 0 auto;
+}
+
+.whyUsP {
+line-height: 1.6;
+font-family: arial;
+text-align: justify;
+padding: 10px;
+}

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+.websiteLogo {
+  font-family: 'Montserrat';
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  background-image: url("./analytics.webp");
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.websiteLogo::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 3;
+}
+
+.websiteLogo h4, .websiteLogo h5 {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  color: white;
+  letter-spacing: 3px;
+  z-index: 4;
+}
+
+.websiteLogo h4 {
+  font-size: 40px;
+  top: 30%;
+}
+
+.websiteLogo h5 {
+  font-size: 26px;
+  top: 45%;
+  line-height: 1.5;
+}

@@ -1,0 +1,39 @@
+.header {
+  width: 100%;
+  font-size: 30px;
+  height: 8vh;
+  position: relative;
+}
+
+.navbar {
+  width: 100%;
+  background-color: white;
+  align-items: center;
+}
+.navbar-brand {
+  margin-left: 5%;
+  height: 8vh;
+}
+
+.nav-link {
+  color: #198754;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+  color: #198754;
+}
+
+.loginBtn {
+  border-radius: 6px;
+  border: 1px solid #198754;
+  padding: 2px;
+  margin-right: 5%;
+  transition: .6s;
+  line-height: 33px;
+}
+
+.loginBtn:hover {
+  background-color: #198754;
+  color: white;
+}
