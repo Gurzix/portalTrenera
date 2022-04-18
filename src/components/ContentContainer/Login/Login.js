@@ -6,7 +6,6 @@ import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
 
-// const auth = useContext(AuthContext);
 const [auth, setAuth] = useAuth();
 
 const history = useNavigate();

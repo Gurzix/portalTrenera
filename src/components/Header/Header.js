@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
-import AuthContext from "../context/authContext";
 import useAuth from "../hooks/useAuth";
-import { useEffect } from "react";
+
 
 const Header = (props) => {
 
@@ -19,7 +18,7 @@ const Header = (props) => {
 
   return (
     <nav className="navbar container-fluid sticky-top">
-      <img src="/logo.png" className="navbar-brand me-auto" alt="" />
+      <img style={{transform: 'scale(1.9)'}} src="/logo2.png" className="navbar-brand me-auto" alt="" />
       <NavLink
         style={({ isActive }) => ({ color: !isActive ? "green" : "blue" })}
         to="/"

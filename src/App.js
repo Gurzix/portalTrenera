@@ -10,7 +10,7 @@ import ExampleEx from "./components/ExampleEx";
 import Training from "./components/ContentContainer/Training/Training";
 import Login from "./components/ContentContainer/Login/Login";
 import Register from "./components/ContentContainer/Register/Register";
-import NotFound from "./components/ContentContainer/NotFound/NotFound";
+import YouMustLogin from "./components/ContentContainer/YouMustLogin/YouMustLogin";
 import useWebsiteTitle from "./components/hooks/useWebsiteTitle";
 import AuthContext from "./components/context/authContext";
 
@@ -161,7 +161,7 @@ function App() {
               ></Route>
               <Route
                 path="training"
-                element={<Training exampleExcersises={exampleExcersises} />}
+                element={state.isAuthenticated ? <Training exampleExcersises={exampleExcersises} /> : <YouMustLogin/>}
               />
             </Route>
             <Route path="login" element={<Login />} />

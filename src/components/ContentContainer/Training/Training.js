@@ -97,6 +97,7 @@ const Training = (props) => {
 
   return (
     <>
+    
       <div className="drillsMenu">
         <p onClick={showPasses}>Podania</p>
         <p onClick={shootingDrills}>Strzały</p>

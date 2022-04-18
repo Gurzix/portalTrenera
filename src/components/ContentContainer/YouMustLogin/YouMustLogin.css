@@ -1,0 +1,10 @@
+.mustLogin {
+    height: 50vh;
+}
+
+.goToLoginPageP {
+    cursor: pointer;
+    font-family: 'Montserrat';
+    font-weight: bolder;
+    letter-spacing: 2px;
+}
