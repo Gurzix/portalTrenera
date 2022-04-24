@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useReducer, useRef} from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import ContentContainer from "./components/ContentContainer/ContentContainer";
@@ -16,8 +16,14 @@ import AuthContext from "./components/context/authContext";
 
 function App() {
 
+  const myRef = useRef(null);
+
+  const executeScroll = () => scrollToRef(myRef)
+  const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
+
   useWebsiteTitle("Strona główna");
-;
+
+
   const initialState = {
     isAuthenticated: JSON.parse(window.localStorage.getItem('token-data')) ? true : false ,
   };
@@ -27,6 +33,7 @@ function App() {
         return { ...state, isAuthenticated: true };
       case "logout":
         return { ...state, isAuthenticated: false };
+
     }
     return state;
   };
@@ -62,16 +69,6 @@ function App() {
         "Uczul zawodników, aby zawsze szukali możliwości gry do najwyżej ustawionego zawodnika. ",
       author: "Piotr Gurzęda",
     },
-    strzelba: {
-      category: "shooting",
-      title:
-        "Schemat rozegrania ataku na połowie przeciwnika zakończony strzałem - 2 warianty",
-      img: "img/schemat-rozegrania-zakonczony-strzalem-2-warianty.png",
-      p: "Schemat rozegrania ataku odpowiedni dla systemu 4-3-3. ",
-      coachingPoints:
-        "Uczul zawodników, aby zawsze szukali możliwości gry do najwyżej ustawionego zawodnika. ",
-      author: "",
-    },
     kombinacja4: {
       category: "passing",
       title: "Kombinacja podań na jeden kontakt z wyjściem do piłki.",
@@ -99,42 +96,16 @@ function App() {
         "Uczul zawodników na szybką grę piłką oraz ustawienie wysokie w ataku. ",
       author: "Piotr Gurzęda",
     },
-    // graTransferPoz: {
-    //   category: 'game',
-    //   title: "Gra doskonaląca przejście z obrony do ataku z 2 obrońcami.",
-    //   img: "img/gra-transfer-pozytywny.png",
-    //   p: "Gra na utrzymanie w wyznaczonym sektorze. Zespół utrzymujący się przy piłce stara się uniknąć straty, zespół broniący dąży do odzyskania piłki i przejścia do działań ofensywnych przeciwko dwóm broniącym zawodnikom ustawionym w strefie przed bramką.",
-    //   coachingPoints: "Po odbiorze szybkie wyjście zawodników w stronę bramki - stworzenie przewagi i możliwości wyboru rozegrania przez zawodnika z piłką.",
-    //   author: 'Piotr Gurzęda',
-    // },  graTransferPoz: {
-    //   category: 'game',
-    //   title: "Gra doskonaląca przejście z obrony do ataku z 2 obrońcami.",
-    //   img: "img/gra-transfer-pozytywny.png",
-    //   p: "Gra na utrzymanie w wyznaczonym sektorze. Zespół utrzymujący się przy piłce stara się uniknąć straty, zespół broniący dąży do odzyskania piłki i przejścia do działań ofensywnych przeciwko dwóm broniącym zawodnikom ustawionym w strefie przed bramką.",
-    //   coachingPoints: "Po odbiorze szybkie wyjście zawodników w stronę bramki - stworzenie przewagi i możliwości wyboru rozegrania przez zawodnika z piłką.",
-    //   author: 'Piotr Gurzęda',
-    // },  graTransferPoz: {
-    //   category: 'game',
-    //   title: "Gra doskonaląca przejście z obrony do ataku z 2 obrońcami.",
-    //   img: "img/gra-transfer-pozytywny.png",
-    //   p: "Gra na utrzymanie w wyznaczonym sektorze. Zespół utrzymujący się przy piłce stara się uniknąć straty, zespół broniący dąży do odzyskania piłki i przejścia do działań ofensywnych przeciwko dwóm broniącym zawodnikom ustawionym w strefie przed bramką.",
-    //   coachingPoints: "Po odbiorze szybkie wyjście zawodników w stronę bramki - stworzenie przewagi i możliwości wyboru rozegrania przez zawodnika z piłką.",
-    //   author: 'Piotr Gurzęda',
-    // },  graTransferPoz: {
-    //   category: 'game',
-    //   title: "Gra doskonaląca przejście z obrony do ataku z 2 obrońcami.",
-    //   img: "img/gra-transfer-pozytywny.png",
-    //   p: "Gra na utrzymanie w wyznaczonym sektorze. Zespół utrzymujący się przy piłce stara się uniknąć straty, zespół broniący dąży do odzyskania piłki i przejścia do działań ofensywnych przeciwko dwóm broniącym zawodnikom ustawionym w strefie przed bramką.",
-    //   coachingPoints: "Po odbiorze szybkie wyjście zawodników w stronę bramki - stworzenie przewagi i możliwości wyboru rozegrania przez zawodnika z piłką.",
-    //   author: 'Piotr Gurzęda',
-    // },  graTransferPoz: {
-    //   category: 'game',
-    //   title: "Gra doskonaląca przejście z obrony do ataku z 2 obrońcami.",
-    //   img: "img/gra-transfer-pozytywny.png",
-    //   p: "Gra na utrzymanie w wyznaczonym sektorze. Zespół utrzymujący się przy piłce stara się uniknąć straty, zespół broniący dąży do odzyskania piłki i przejścia do działań ofensywnych przeciwko dwóm broniącym zawodnikom ustawionym w strefie przed bramką.",
-    //   coachingPoints: "Po odbiorze szybkie wyjście zawodników w stronę bramki - stworzenie przewagi i możliwości wyboru rozegrania przez zawodnika z piłką.",
-    //   author: 'Piotr Gurzęda',
-    // },
+    finalizacja: {
+      category: "shooting",
+      title: "Rozegranie akcji zakończone strzałem na bramkę",
+      img: "img/finalizacja.png",
+      p: "Schemat działań jak na rysunku. Zawodnicy rozgrywają akcję na połowie przeciwnika, szukając podania prostopadłego między linię obrońców ustawioną z 'brazylijczyków', na zawodnika nr 10 rotującego z 9 lub zawodników 7/11 ",
+      coachingPoints:
+        "Uczul zawodników na szybką grę piłką na jeden/dwa kontakty. Zwróć uwagę na rotację na pozycjach, wyjście do piłki oraz odpowiedni timing ",
+      author: "Piotr Gurzęda",
+    },
+    
   };
 
   return (
@@ -145,26 +116,25 @@ function App() {
         logout: () => dispatch({ type: "logout" }),
       }}
     >
-      <div className="App">
+      <div  ref={myRef} className="App">
         <Router>
-          <Header></Header>
-
+          <Header goTo={executeScroll}></Header>
           <Routes>
-            <Route path="/" element={<ContentContainer />}>
+            <Route path="/"  element={<ContentContainer/>}>
               <Route
                 index
-                element={<Main exampleExcersises={exampleExcersises} />}
+                element={<Main goTo={executeScroll} exampleExcersises={exampleExcersises} />}
               />
               <Route
                 path="/:item"
-                element={<ExampleEx exampleExcersises={exampleExcersises} />}
+                element={<ExampleEx goUp={myRef} exampleExcersises={exampleExcersises} />}
               ></Route>
               <Route
                 path="training"
-                element={state.isAuthenticated ? <Training exampleExcersises={exampleExcersises} /> : <YouMustLogin/>}
+                element={state.isAuthenticated ? <Training goTo={executeScroll} exampleExcersises={exampleExcersises} /> : <YouMustLogin goTo={executeScroll}/>}
               />
             </Route>
-            <Route path="login" element={<Login />} />
+            <Route path="login" element={<Login goTo={executeScroll} />} />
             <Route path="register" element={<Register />} />
           </Routes>
         </Router>

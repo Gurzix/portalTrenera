@@ -3,16 +3,13 @@ import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axiosFresh from "axios";
-import { useContext } from "react";
-import AuthContext from "../../context/authContext";
 
 const Register = () => {
 
   const history = useNavigate();
-  const auth = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [valid, setValid] = useState(null);
+
 
   const submit = async e => {
     e.preventDefault();
@@ -34,9 +31,6 @@ const Register = () => {
 
   return (
     <div className="registerPage">
-      {valid === false ? (
-        <p className="alert alert-danger"> chuja tam a nie logowanie</p>
-      ) : null}
       <h2>Rejestracja</h2>
       <form onSubmit={submit}>
         <div className="form-group">

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
@@ -8,8 +8,17 @@ const Header = (props) => {
 
  const [auth, setAuth] = useAuth();
 
- const logout =(e)=> {
+ const goTo = props.goTo;
 
+  useEffect(()=>{
+    const startGoingToTopOfArticle = setTimeout(()=>{
+      goTo();
+    }, 10);
+    return () => clearTimeout(startGoingToTopOfArticle);
+  });
+
+ const logout =(e)=> {
+   
   if(e.target.textContent === 'Wyloguj się') {
     setAuth(false);
     JSON.parse(window.localStorage.setItem('token-data', false))

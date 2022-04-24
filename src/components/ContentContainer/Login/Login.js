@@ -1,10 +1,18 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import axiosFresh from "axios";
 import useAuth from "../../hooks/useAuth";
 
-const Login = () => {
+const Login = (props) => {
+  
+  const goTo = props.goTo;
+  useEffect(()=>{
+    const startGoingToTopOfArticle = setTimeout(()=>{
+      goTo();
+    }, 10);
+    return () => clearTimeout(startGoingToTopOfArticle);
+  });
 
 const [auth, setAuth] = useAuth();
 
@@ -13,7 +21,7 @@ const history = useNavigate();
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
 const [error, setError] = useState('');
-const [valid, setValid] = useState(null);
+
 
 const submit = async (e) => {
 

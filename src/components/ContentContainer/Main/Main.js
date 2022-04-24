@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 import "./Main.css";
 import WebsiteLogo from "../WebsiteLogo/WebsiteLogo";
@@ -6,7 +6,17 @@ import WhyUs from "../Main/WhyUs/WhyUs"
 import useWebsiteTitle from "../../hooks/useWebsiteTitle";
 
 const Main = (props) => {
+  
 
+  const goTo = props.goTo;
+
+  useEffect(()=>{
+    const startGoingToTopOfArticle = setTimeout(()=>{
+      goTo();
+    }, 10);
+    return () => clearTimeout(startGoingToTopOfArticle);
+  });
+  
   useWebsiteTitle('Strona główna');
 
   const exampleExcersises = props.exampleExcersises;
@@ -17,7 +27,7 @@ const Main = (props) => {
     <Link key={title} to={`/${item}`}>
     <div className="singleExample rounded mx-1 card">
 
-      <img className="card-img-top " src={img} alt="Card image cap"></img>
+      <img className="card-img-top " src={img} alt="excersise"></img>
       <div className="card-body">
         <p className="exampleP" key={item}>{title}</p>
       </div>
