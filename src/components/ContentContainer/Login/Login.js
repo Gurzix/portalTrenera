@@ -39,7 +39,13 @@ setAuth(true, res.data);
  history('/');
 }
 catch(ex) {
-setError(ex.response.data.error.message)
+
+  if(ex.response.data.error.message === 'EMAIL_NOT_FOUND') {
+    setError('Email nie istnieje w naszej bazie.')
+  } else if(ex.response.data.error.message === 'INVALID_PASSWORD') {
+    setError('Podane hasło jest nieprawidłowe')
+  }
+
 console.log(ex.response.data.error.message)
 }
   
@@ -67,7 +73,7 @@ console.log(ex.response.data.error.message)
            className="form-control" />
         </div>
         {error ? (
-        <div className="alert alert-danger"> {error} </div> ) : null}
+        <div className="alert alert-danger mt-3"> {error} </div> ) : null}
         <button className="btn btn-primary mt-3">Zaloguj</button>
       </form>
     </div>

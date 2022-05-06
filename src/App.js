@@ -105,7 +105,24 @@ function App() {
         "Uczul zawodników na szybką grę piłką na jeden/dwa kontakty. Zwróć uwagę na rotację na pozycjach, wyjście do piłki oraz odpowiedni timing ",
       author: "Piotr Gurzęda",
     },
-    
+    atakSzybki4x4: {
+      category: "game",
+      title: "Doskonalenie ataku szybkiego w grze 4 x 4.",
+      img: "img/atakSzybki4x4.png",
+      p: "Schemat działań jak na rysunku. Ćwiczenie rozpoczyna się podaniem od zawodnika stojącego najbliżej piłki do zawodnika nr 9, który zgrywa piłkę do wbiegających kolegów z jego drużyny. Po zagraniu obrońca mija wyznaczony pachołek i przechodzi do działań defensywnych. W tym samym czasie dwóch kolejnych obrońców wykonuje zadanie na płotkach i również przechodzi do zadań w defensywie. W tym czasie zespół atakujący znajduje się w przewadze 4 x 1 w ofensywie. ",
+      coachingPoints:
+        "Zawodnicy będący w ofensywie powinni jak najszybciej skończyć akcję. Muszą wykorzystać przewagę, grając na jeden,dwa kontakty. Piłka musi być grana do przodu,tak, aby uniemożliwić powrót do defensywy zawodnikom broniącym. ",
+      author: "Piotr Gurzęda",
+    },
+    zegar: {
+      category: "passing",
+      title: "Zegar - doskonalenie podań z wyjściem do piłki po obiegu za plecy",
+      img: "img/zegar.png",
+      p: "Schemat działań jak na rysunku. W zależności od ilości osób w środku z piłką znajduje się jedna lub więcej par. Ćwiczenie rozpoczyna podaniem ze środka do zawodnika stojącego na obwodzie koła (zegara) jeden z zawodników znajdujących się w środku, po czym wchodzi w miejsce zawodnika do którego podał piłkę. Zawodnik z obwodu koła, który otrzymał piłkę od środkowego gra ją z powrotem do środka, do drugiego zawodnika z pary i idzie mu za plecy. Zawodnik , który otrzymał piłkę, gra ją znowu na obwód do kolejnego zawodnika tworzącego zegar. Sekwencja zaczyna się od nowa ",
+      coachingPoints:
+        "Zwróć uwagę na wyjście do zagranej piłki. Piłka powinna być zagrana na dalszą nogę, do przodu. ",
+      author: "Piotr Gurzęda",
+    },
   };
 
   return (

@@ -69,7 +69,7 @@ const Training = (props) => {
     setExcersises(newObj);
 
     if (e.target.value === "") {
-      setExcersises(null);
+      setExcersises(newObj);
     }
   };
 
